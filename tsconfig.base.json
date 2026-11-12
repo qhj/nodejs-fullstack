@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    // Modules
+    "allowImportingTsExtensions": true,
+    // Emit
+    "noEmit": true,
+    // Interop Constraints
+    "erasableSyntaxOnly": true,
+    "verbatimModuleSyntax": true,
+    // Language and Environment
+    "moduleDetection": "force",
+    "target": "esnext",
+    // Others
+    "noErrorTruncation": true,
+    "skipLibCheck": true
+  }
+}

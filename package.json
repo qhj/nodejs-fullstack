@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-fullstack",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.6"
+  }
+}
