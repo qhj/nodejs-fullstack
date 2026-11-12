@@ -1,3 +1,5 @@
 .nix
 .vscode
 node_modules
+.dev
+build

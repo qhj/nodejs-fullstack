@@ -25,7 +25,12 @@
     in
     {
       devShells = forAllSystems (
-        _: pkgs: {
+        _: pkgs:
+        let
+          typescript7 = pkgs.callPackage ./nix/typescript-native-preview.nix { };
+          patchedVscodium = pkgs.callPackage ./nix/vscodium.nix { };
+        in
+        {
           default = pkgs.mkShellNoCC {
             packages = with pkgs; [
               bashInteractive
@@ -36,10 +41,12 @@
               pnpm
               typescript
               typescript-language-server
+              esbuild
               (vscode-with-extensions.override {
-                vscode = vscodium;
+                vscode = patchedVscodium;
                 vscodeExtensions = with vscode-extensions; [
                   jnoortheen.nix-ide
+                  typescript7
                 ];
               })
             ];
@@ -57,6 +64,8 @@
                     "editor.defaultFormatter" = "jnoortheen.nix-ide";
                   };
                   "editor.formatOnSave" = true;
+                  "js/ts.preferences.importModuleSpecifier" = "non-relative";
+                  "js/ts.experimental.useTsgo" = true;
                 };
               in
               ''
