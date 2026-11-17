@@ -4,11 +4,7 @@
     "tsBuildInfoFile": ".dev/tsconfig.server.tsbuildinfo",
     "module": "esnext",
     "moduleResolution": "bundler",
-    "types": [
-      "node"
-    ]
+    "types": ["node"]
   },
-  "include": [
-    "server"
-  ]
+  "include": ["server"]
 }

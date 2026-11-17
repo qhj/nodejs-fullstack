@@ -1,5 +1,11 @@
 import { Effect, Layer, Schema } from 'effect'
-import { HttpApi, HttpApiBuilder, HttpApiEndpoint, HttpApiGroup, HttpApiSchema, HttpApiSecurity } from 'effect/http-api'
+import {
+  HttpApi,
+  HttpApiBuilder,
+  HttpApiEndpoint,
+  HttpApiGroup,
+  HttpApiSchema,
+} from 'effect/http-api'
 
 const Api = HttpApi.make('Api').add(
   HttpApiGroup.make('Probe')
@@ -12,13 +18,9 @@ const Api = HttpApi.make('Api').add(
 )
 
 const ProbeLive = HttpApiBuilder.group(Api, 'Probe', (handlers) =>
-  handlers
-    .handle('ping', () => Effect.succeed('pong'))
-  ,
+  handlers.handle('ping', () => Effect.succeed('pong')),
 )
 
-const ApiLive = HttpApiBuilder.layer(Api).pipe(
-  Layer.provide(ProbeLive),
-)
+const ApiLive = HttpApiBuilder.layer(Api).pipe(Layer.provide(ProbeLive))
 
 export { Api, ApiLive }

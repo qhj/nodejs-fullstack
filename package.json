@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch-path=server --watch-path=scripts --watch-preserve-output scripts/dev.ts",
+    "typecheck": "tsc -b",
+    "check": "biome check && pnpm typecheck",
+    "lint:fix": "biome lint --write",
+    "fmt:fix": "biome format --write",
     "build:server": "esbuild server/index.ts --bundle --platform=node --target=node26 --sourcemap --out-extension:.js=.cjs --entry-names='[dir]/[name]' --outdir=build",
     "build": "rm -rf build && pnpm build:server && vite build"
   },

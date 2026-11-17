@@ -39,6 +39,7 @@
               nixfmt
               nodejs-slim_26
               pnpm
+              biome
               typescript
               typescript-language-server
               esbuild
@@ -47,6 +48,7 @@
                 vscodeExtensions = with vscode-extensions; [
                   jnoortheen.nix-ide
                   typescript7
+                  biomejs.biome
                 ];
               })
             ];
@@ -64,6 +66,13 @@
                     "editor.defaultFormatter" = "jnoortheen.nix-ide";
                   };
                   "editor.formatOnSave" = true;
+                  "editor.defaultFormatter" = "biomejs.biome";
+                  "editor.codeActionsOnSave" = {
+                    "source.organizeImports.biome" = "explicit";
+                  };
+                  "json.schemaDownload.trustedDomains" = {
+                    "https://biomejs.dev" = true;
+                  };
                   "js/ts.preferences.importModuleSpecifier" = "non-relative";
                   "js/ts.experimental.useTsgo" = true;
                 };

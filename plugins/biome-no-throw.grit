@@ -1,0 +1,5 @@
+language js(typescript, jsx)
+
+JsThrowStatement() as $throw where {
+  register_diagnostic(span=$throw, message="Avoid the throw statement.")
+}
