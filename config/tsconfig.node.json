@@ -1,9 +1,9 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "tsBuildInfoFile": ".dev/tsconfig.node.tsbuildinfo",
+    "tsBuildInfoFile": "../.dev/tsconfig.node.tsbuildinfo",
     "module": "nodenext",
     "types": ["node"]
   },
-  "include": ["vite.config.ts", "scripts"]
+  "include": ["../vite.config.ts", "../scripts"]
 }
