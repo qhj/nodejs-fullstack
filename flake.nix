@@ -45,11 +45,20 @@
               esbuild
               (vscode-with-extensions.override {
                 vscode = patchedVscodium;
-                vscodeExtensions = with vscode-extensions; [
-                  jnoortheen.nix-ide
-                  typescript7
-                  biomejs.biome
-                ];
+                vscodeExtensions =
+                  (with vscode-extensions; [
+                    jnoortheen.nix-ide
+                    typescript7
+                    biomejs.biome
+                  ])
+                  ++ vscode-utils.extensionsFromVscodeMarketplace [
+                    {
+                      name = "fluid-diff";
+                      publisher = "steinsfu";
+                      version = "1.3.0";
+                      hash = "sha256-Y6sfOTdv269wPafNQj/vtHHdLQJ9EyR7wVrOoTZdPXg=";
+                    }
+                  ];
               })
             ];
 
