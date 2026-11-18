@@ -4,7 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "node --watch-path=server --watch-path=scripts --watch-preserve-output scripts/dev.ts",
+    "dev": "node scripts/load-local-env.ts && node --watch-path=server --watch-path=scripts --watch-preserve-output scripts/dev.ts",
+    "db:push": "mkdir -p .dev && drizzle-kit push --verbose",
+    "db:export": "mkdir -p .dev && drizzle-kit export > .dev/schema.sql",
+    "db:diff": "pnpm db:export && atlas migrate diff --env sqlite",
     "typecheck": "tsc -b",
     "check": "biome check && pnpm typecheck",
     "lint:fix": "biome lint --write",
@@ -23,10 +26,13 @@
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.3.0",
     "babel-plugin-react-compiler": "1.0.0",
+    "drizzle-kit": "1.0.0-rc.5",
     "vite": "8.3.8"
   },
   "dependencies": {
     "@effect/platform-node": "4.1.4",
+    "@effect/sql-sqlite-node": "4.1.4",
+    "drizzle-orm": "1.0.0-rc.5",
     "effect": "4.1.4",
     "react": "19.3.1",
     "react-dom": "19.3.1"

@@ -10,8 +10,9 @@
       "tsconfig.json",
       "config/tsconfig.*.json",
       "vite.config.ts",
+      "drizzle.config.ts",
       "scripts/**/*.ts",
-      "server/**/*.{ts,tsx}",
+      "server/**/*.ts",
       "client/**/*.{ts,tsx}"
     ]
   },

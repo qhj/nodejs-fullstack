@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
+    effect-src = {
+      url = "github:Effect-TS/effect/effect@4.1.4";
+      flake = false;
+    };
   };
 
   outputs =
@@ -40,9 +44,11 @@
               nodejs-slim_26
               pnpm
               biome
+              atlas
+              sqlite
+              esbuild
               typescript
               typescript-language-server
-              esbuild
               (vscode-with-extensions.override {
                 vscode = patchedVscodium;
                 vscodeExtensions =
@@ -50,6 +56,7 @@
                     jnoortheen.nix-ide
                     typescript7
                     biomejs.biome
+                    hashicorp.hcl
                   ])
                   ++ vscode-utils.extensionsFromVscodeMarketplace [
                     {
@@ -90,6 +97,7 @@
                 mkdir -p .vscode
                 ln -sf ${settings} .vscode/settings.json
 
+                export EFFECT_SOURCE="${inputs.effect-src}"
                 export SHELL=${inputs.nixpkgs.lib.getExe fish}
 
                 if [[ $- == *i* ]]; then

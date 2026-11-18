@@ -1,5 +1,22 @@
 {
   "nodes": {
+    "effect-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794369397,
+        "narHash": "sha256-kQnsYWbw825VK3GAAOERwyXq5chMD1seeREG9BWBzKA=",
+        "owner": "Effect-TS",
+        "repo": "effect",
+        "rev": "289a53f7b1fc40049219c6e69022db2fb859c356",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Effect-TS",
+        "ref": "effect@4.1.4",
+        "repo": "effect",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1794158174,
@@ -15,6 +32,7 @@
     },
     "root": {
       "inputs": {
+        "effect-src": "effect-src",
         "nixpkgs": "nixpkgs"
       }
     }

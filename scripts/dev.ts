@@ -11,7 +11,10 @@ import {
   HttpServerResponse,
 } from 'effect/http'
 import { createServer as createViteServer } from 'vite'
+import { loadLocalConfig } from '#/scripts/load-local-env.ts'
 import { ApiLive } from '#/server/api.ts'
+
+loadLocalConfig()
 
 const vite = await createViteServer({
   server: {

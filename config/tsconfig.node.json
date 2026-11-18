@@ -5,5 +5,5 @@
     "module": "nodenext",
     "types": ["node"]
   },
-  "include": ["../vite.config.ts", "../scripts"]
+  "include": ["../vite.config.ts", "../drizzle.config.ts", "../scripts"]
 }
