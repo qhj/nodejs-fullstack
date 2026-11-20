@@ -71,3 +71,5 @@ pnpm db:diff
 ```sh
 atlas migrate apply --dir file://atlas/migrations --url <database-url>
 ```
+
+## [将 SQLite 替换为 PostgreSQL](POSTGRESQL.md)
