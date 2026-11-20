@@ -57,6 +57,7 @@
                     typescript7
                     biomejs.biome
                     hashicorp.hcl
+                    bradlc.vscode-tailwindcss
                   ])
                   ++ vscode-utils.extensionsFromVscodeMarketplace [
                     {
@@ -88,9 +89,13 @@
                   };
                   "json.schemaDownload.trustedDomains" = {
                     "https://biomejs.dev" = true;
+                    "https://ui.shadcn.com" = true;
                   };
                   "js/ts.preferences.importModuleSpecifier" = "non-relative";
                   "js/ts.experimental.useTsgo" = true;
+                  "files.associations" = {
+                    "*.css" = "tailwindcss";
+                  };
                 };
               in
               ''
